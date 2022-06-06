@@ -1,10 +1,12 @@
 import gulp from 'gulp'
-//const imagemin = require('gulp-imagemin')
 import imagemin from 'gulp-imagemin'
 import fileinclude from 'gulp-file-include'
 import dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 const sass = gulpSass(dartSass)
+
+const PROJECT_SOURCE_FOLDER = 'src'
+const PROJECT_OUTPUT_FOLDER = 'dist'
 
 // GULP FONKSIYONLARI
 // gulp.task - Define tasks
@@ -31,12 +33,12 @@ gulp.task('copyHtml', async () => {
 gulp.task('imagemin', async () => {
   gulp.src('src/images/*')
     .pipe(imagemin())
-    .pipe(gulp.dest('dist/images'))
+    .pipe(gulp.dest('dist/assets/img'))
 })
 
 // File includes
 gulp.task('fileinclude', async () => {
-  gulp.src(['src/*.html'])
+  gulp.src(['src/views/*.html'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -57,3 +59,10 @@ gulp.task('default', async () => {
   return console.log('Gulp is running...')
 }) // Üstteki gibi fonksiyon adı vermeden çalıştırmak için task ismine default yazıp konsola: gulp
 
+
+// GULP WATCH
+gulp.task('watch', async () => {
+  gulp.watch('src/sass/*.scss', gulp.series('sass'))
+  gulp.watch('src/views/*.html', gulp.series('fileinclude'))
+  //gulp.watch('src/images/*', ['imagemin'])
+})

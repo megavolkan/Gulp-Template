@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "gulpexapp",
+  "name": "gulpstart",
   "version": "1.0.0",
   "description": "Örnek gulp kurulumu ve kullanımı",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "gulpexapp"
+    "url": "gulpstart"
   },
   "keywords": [
     "gulp"
