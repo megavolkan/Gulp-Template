@@ -5,22 +5,6 @@ import dartSass from 'sass'
 import gulpSass from 'gulp-sass'
 const sass = gulpSass(dartSass)
 
-const PROJECT_SOURCE_FOLDER = 'src'
-const PROJECT_OUTPUT_FOLDER = 'dist'
-
-// GULP FONKSIYONLARI
-// gulp.task - Define tasks
-// gulp.src - Takes source files
-// gulp.dest - Points to output folder
-// gulp.watch - Watch files and folder for changes
-
-// Fonksiyon başına async koymazsak hata alırız: 
-// [00:10:06] The following tasks did not complete: message
-
-gulp.task('message', async function() {
-  return console.log('Gulp is running...')
-}) // Çalıştırmak için konsola: gulp message
-
 
 // Copy all html files to dist dir, fonksiyona istedğin ismi verebilirsin-> [copyHtml]
 gulp.task('copyHtml', async () => {
