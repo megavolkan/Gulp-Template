@@ -22,7 +22,7 @@ gulp.task('imagemin', async () => {
 
 // File includes
 gulp.task('fileinclude', async () => {
-  gulp.src(['src/views/*.html'])
+  gulp.src(['src/views/**/*.html'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -47,6 +47,6 @@ gulp.task('default', async () => {
 // GULP WATCH
 gulp.task('watch', async () => {
   gulp.watch('src/sass/**/*.scss', gulp.series('sass'))
-  gulp.watch('src/views/*.html', gulp.series('fileinclude'))
+  gulp.watch('src/views/**/*.html', gulp.series('fileinclude'))
   //gulp.watch('src/images/*', ['imagemin'])
 })
