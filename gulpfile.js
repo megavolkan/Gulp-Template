@@ -32,7 +32,7 @@ gulp.task('fileinclude', async () => {
 
 // Compile Sass
 gulp.task('sass', async () => {
-    gulp.src('src/sass/*.scss', { sourcemaps: true })
+    gulp.src('src/sass/**/*.scss', { sourcemaps: true })
       .pipe(sass.sync().on('error', sass.logError)) // scss to css
       .pipe(gulp.dest('dist/assets/css', { sourcemaps: '../sourcemaps/' }))
 })
@@ -46,7 +46,7 @@ gulp.task('default', async () => {
 
 // GULP WATCH
 gulp.task('watch', async () => {
-  gulp.watch('src/sass/*.scss', gulp.series('sass'))
+  gulp.watch('src/sass/**/*.scss', gulp.series('sass'))
   gulp.watch('src/views/*.html', gulp.series('fileinclude'))
   //gulp.watch('src/images/*', ['imagemin'])
 })
