@@ -22,7 +22,7 @@ gulp.task('imagemin', async () => {
 
 // File includes
 gulp.task('fileinclude', async () => {
-  gulp.src(['src/views/**/*.html'])
+  gulp.src(['src/views/**/*.html','!src/views/**/_*.html'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
